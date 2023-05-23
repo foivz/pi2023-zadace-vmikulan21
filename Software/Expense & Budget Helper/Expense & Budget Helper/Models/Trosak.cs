@@ -12,6 +12,9 @@ namespace Expense___Budget_Helper.Models
         public string Opis { get; set; }
         public DateTime Datum { get; set; }
         public int Cijena { get; set; }
-        public string NazivTroska { get; set; }
+        public string Vrsta { get; set; }
+        public string Kategorija { get; set; }
+
+
     }
 }

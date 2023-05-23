@@ -30,7 +30,16 @@ namespace Expense___Budget_Helper
                 MessageBox.Show("Lozinka nije unesena!", "Problem", MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
             }
-           
+
+            if (txtUsername.Text == "korisnik" && txtPassword.Text == "test")
+            {
+                FrmTroskovi frmTroskovi = new FrmTroskovi();
+                Hide();
+                frmTroskovi.ShowDialog();
+                Close();
+            }
+
+
         }
 
     }
