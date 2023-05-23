@@ -18,23 +18,18 @@ namespace Expense___Budget_Helper
         public FrmUnos()
         {
             InitializeComponent();
-            List<Trosak> troskovi = TrosakRepository.GetTroskovi();
-            cboVrsta.DataSource = troskovi;
-            cboVrsta.DisplayMember = "Naziv_vrste";
-            cboVrsta.ValueMember = "Id_vrste";
         }
 
         public void btnUnesi_Click(object sender, EventArgs e)
         {
-            int Id_Troska = int.Parse(txtId.Text);
             int cijena = int.Parse(txtCijena.Text);
             DateTime datum = dateDatum.Value;
             string opis = txtOpis.Text;
             int vrsta = int.Parse(cboVrsta.SelectedValue.ToString());
 
+
             var trosak = new Trosak
             {
-                Id = Id_Troska,
                 Cijena = cijena,
                 Datum = datum,
                 Opis = opis,
@@ -45,6 +40,25 @@ namespace Expense___Budget_Helper
 
             MessageBox.Show("Trosak uspješno dodan!");
 
+        }
+
+        private void cboVrsta_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if(cboVrsta.SelectedValue != null)
+            {
+                var odabranaVrstaTroska = (VrstaTroska) cboVrsta.SelectedItem;
+                Kategorija kategorija = KategorijeRepository.GetKategorija(odabranaVrstaTroska.Id_kategorije);
+                txtKategorija.Text = kategorija.Naziv;
+            }
+
+        }
+
+        private void FrmUnos_Load(object sender, EventArgs e)
+        {
+            List<VrstaTroska> vrsteTroskova = VrsteTroskovaRepository.GetListaVrstaTroskova();
+            cboVrsta.DataSource = vrsteTroskova;
+            cboVrsta.DisplayMember = "Naziv";
+            cboVrsta.ValueMember = "Id";
         }
     }
 }

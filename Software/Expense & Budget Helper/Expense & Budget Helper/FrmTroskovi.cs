@@ -27,6 +27,27 @@ namespace Expense___Budget_Helper
         {
             List<Trosak> troskovi = TrosakRepository.GetTroskovi();
             dgvTroskovi.DataSource = troskovi;
+            DataGridViewTextBoxColumn vrstaTroskaColumn = new DataGridViewTextBoxColumn();
+            vrstaTroskaColumn.Name = "VrstaTroska";
+            vrstaTroskaColumn.HeaderText = "Vrsta troska";
+            DataGridViewTextBoxColumn kategorijaColumn = new DataGridViewTextBoxColumn();
+            kategorijaColumn.Name = "Kategorija";
+            kategorijaColumn.HeaderText = "Kategorija";
+            dgvTroskovi.Columns.Add(kategorijaColumn);
+            dgvTroskovi.Columns.Add(vrstaTroskaColumn);
+            dgvTroskovi.Columns["Id_vrste"].Visible = false;
+
+
+            foreach (DataGridViewRow row in dgvTroskovi.Rows)
+            {
+                DataGridViewCell vrstaTroskaCell = row.Cells["VrstaTroska"];
+                VrstaTroska vrstaTroska = VrsteTroskovaRepository.GetVrstaTroska(int.Parse(row.Cells["Id_vrste"].Value.ToString()));
+                vrstaTroskaCell.Value = vrstaTroska.Naziv;
+
+                DataGridViewCell kategorijaCell = row.Cells["Kategorija"];
+                Kategorija kategorija = KategorijeRepository.GetKategorija(vrstaTroska.Id_kategorije);
+                kategorijaCell.Value = kategorija.Naziv;
+            }
 
         }
 
