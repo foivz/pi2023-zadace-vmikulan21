@@ -33,13 +33,13 @@
             this.lblCijena = new System.Windows.Forms.Label();
             this.txtCijena = new System.Windows.Forms.TextBox();
             this.lblDatum = new System.Windows.Forms.Label();
-            this.txtDatum = new System.Windows.Forms.TextBox();
             this.lblKategorija = new System.Windows.Forms.Label();
             this.lblVrsta = new System.Windows.Forms.Label();
             this.lblOpis = new System.Windows.Forms.Label();
             this.txtOpis = new System.Windows.Forms.TextBox();
             this.btnUnesi = new System.Windows.Forms.Button();
             this.cboVrsta = new System.Windows.Forms.ComboBox();
+            this.dateDatum = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lblId
@@ -83,13 +83,6 @@
             this.lblDatum.TabIndex = 4;
             this.lblDatum.Text = "Datum:";
             // 
-            // txtDatum
-            // 
-            this.txtDatum.Location = new System.Drawing.Point(82, 110);
-            this.txtDatum.Name = "txtDatum";
-            this.txtDatum.Size = new System.Drawing.Size(100, 20);
-            this.txtDatum.TabIndex = 5;
-            // 
             // lblKategorija
             // 
             this.lblKategorija.AutoSize = true;
@@ -132,6 +125,7 @@
             this.btnUnesi.TabIndex = 12;
             this.btnUnesi.Text = "Unesi";
             this.btnUnesi.UseVisualStyleBackColor = true;
+            this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
             // 
             // cboVrsta
             // 
@@ -141,18 +135,25 @@
             this.cboVrsta.Size = new System.Drawing.Size(121, 21);
             this.cboVrsta.TabIndex = 13;
             // 
+            // dateDatum
+            // 
+            this.dateDatum.Location = new System.Drawing.Point(82, 107);
+            this.dateDatum.Name = "dateDatum";
+            this.dateDatum.Size = new System.Drawing.Size(200, 20);
+            this.dateDatum.TabIndex = 14;
+            // 
             // FrmUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 351);
+            this.Controls.Add(this.dateDatum);
             this.Controls.Add(this.cboVrsta);
             this.Controls.Add(this.btnUnesi);
             this.Controls.Add(this.txtOpis);
             this.Controls.Add(this.lblOpis);
             this.Controls.Add(this.lblVrsta);
             this.Controls.Add(this.lblKategorija);
-            this.Controls.Add(this.txtDatum);
             this.Controls.Add(this.lblDatum);
             this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.lblCijena);
@@ -172,12 +173,12 @@
         private System.Windows.Forms.Label lblCijena;
         private System.Windows.Forms.TextBox txtCijena;
         private System.Windows.Forms.Label lblDatum;
-        private System.Windows.Forms.TextBox txtDatum;
         private System.Windows.Forms.Label lblKategorija;
         private System.Windows.Forms.Label lblVrsta;
         private System.Windows.Forms.Label lblOpis;
         private System.Windows.Forms.TextBox txtOpis;
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.ComboBox cboVrsta;
+        private System.Windows.Forms.DateTimePicker dateDatum;
     }
 }

@@ -10,9 +10,9 @@ using Expense___Budget_Helper.Models;
 
 namespace Expense___Budget_Helper.Repositories
 {
-    public class TrosakRepository
+    public static class TrosakRepository
     {
-        public Trosak GetTrosak(int id)
+        public static Trosak GetTrosak(int id)
         {
             Trosak trosak = new Trosak();
             string sql = $"SELECT * FROM Troskovi WHERE Id_troska = {id}";
@@ -32,7 +32,7 @@ namespace Expense___Budget_Helper.Repositories
         public static List<Trosak> GetTroskovi()
         {
             List<Trosak> troskovi = new List<Trosak>();
-            string sql = "SELECT * FROM Troskovi,Kategorije,VrsteTroskova WHERE Troskovi.Id_vrste = VrsteTroskova.Id_vrste AND VrsteTroskova.Id_kategorije = kategorije.Id_kategorije";
+            string sql = "SELECT * FROM Troskovi";
         
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
@@ -45,15 +45,15 @@ namespace Expense___Budget_Helper.Repositories
             DB.CloseConnection();
             return troskovi;
         }
+
         private static Trosak CreateObject(SqlDataReader reader)
         {
 
             int id = int.Parse(reader["Id_troska"].ToString());
-            string opis = reader["opis"].ToString();
-            DateTime datum = DateTime.Parse(reader["datum"].ToString());
+            string opis = reader["Opis"].ToString();
+            DateTime datum = DateTime.Parse(reader["Datum"].ToString());
             int cijena = int.Parse(reader["Cijena"].ToString());
-            string kategorija = reader["Naziv_kategorije"].ToString();
-            string vrsta = reader["Naziv_vrste"].ToString();
+            int id_vrste = int.Parse(reader["Id_vrste"].ToString());
 
             var trosak = new Trosak
             {
@@ -61,11 +61,19 @@ namespace Expense___Budget_Helper.Repositories
                 Opis = opis,
                 Datum = datum,
                 Cijena = cijena,
-                Kategorija = kategorija,
-                Vrsta = vrsta
+                Id_vrste = id_vrste
             };
             return trosak;
 
+        }
+
+
+        public static void InsertTrosak(Trosak trosak)
+        {
+            string sql = $"INSERT INTO Troskovi (Opis, Cijena, Datum, Id_vrste) VALUES ('{trosak.Opis}', {trosak.Cijena}, '{trosak.Datum.ToString("yyyy-MM-dd")}','{trosak.Id_vrste}')";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
         }
 
 
