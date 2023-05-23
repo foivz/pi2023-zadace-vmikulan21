@@ -29,7 +29,7 @@ namespace Expense___Budget_Helper.Repositories
             return trosak;
 
         }
-        public static List<Trosak> GetTrosak()
+        public static List<Trosak> GetTroskovi()
         {
             List<Trosak> troskovi = new List<Trosak>();
             string sql = "SELECT * FROM Troskovi,Kategorije,VrsteTroskova WHERE Troskovi.Id_vrste = VrsteTroskova.Id_vrste AND VrsteTroskova.Id_kategorije = kategorije.Id_kategorije";

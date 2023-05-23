@@ -25,9 +25,15 @@ namespace Expense___Budget_Helper
         }
         private void ShowTroskovi()
         {
-            List<Trosak> troskovi = TrosakRepository.GetTrosak();
+            List<Trosak> troskovi = TrosakRepository.GetTroskovi();
             dgvTroskovi.DataSource = troskovi;
 
+        }
+
+        private void btnUnos_Click(object sender, EventArgs e)
+        {
+            FrmUnos frmUnos = new FrmUnos();
+            frmUnos.ShowDialog();
         }
     }
 }
