@@ -14,6 +14,7 @@ namespace Expense___Budget_Helper
 {
     public partial class FrmTroskovi : Form
     {
+        bool inicijalizirano = false;
         public FrmTroskovi()
         {
             InitializeComponent();
@@ -27,15 +28,19 @@ namespace Expense___Budget_Helper
         {
             List<Trosak> troskovi = TrosakRepository.GetTroskovi();
             dgvTroskovi.DataSource = troskovi;
-            DataGridViewTextBoxColumn vrstaTroskaColumn = new DataGridViewTextBoxColumn();
-            vrstaTroskaColumn.Name = "VrstaTroska";
-            vrstaTroskaColumn.HeaderText = "Vrsta troska";
-            DataGridViewTextBoxColumn kategorijaColumn = new DataGridViewTextBoxColumn();
-            kategorijaColumn.Name = "Kategorija";
-            kategorijaColumn.HeaderText = "Kategorija";
-            dgvTroskovi.Columns.Add(kategorijaColumn);
-            dgvTroskovi.Columns.Add(vrstaTroskaColumn);
-            dgvTroskovi.Columns["Id_vrste"].Visible = false;
+            if (!inicijalizirano)
+            {
+                DataGridViewTextBoxColumn vrstaTroskaColumn = new DataGridViewTextBoxColumn();
+                vrstaTroskaColumn.Name = "VrstaTroska";
+                vrstaTroskaColumn.HeaderText = "Vrsta troska";
+                DataGridViewTextBoxColumn kategorijaColumn = new DataGridViewTextBoxColumn();
+                kategorijaColumn.Name = "Kategorija";
+                kategorijaColumn.HeaderText = "Kategorija";
+                dgvTroskovi.Columns.Add(kategorijaColumn);
+                dgvTroskovi.Columns.Add(vrstaTroskaColumn);
+                dgvTroskovi.Columns["Id_vrste"].Visible = false;
+                inicijalizirano = true;
+            }
 
 
             foreach (DataGridViewRow row in dgvTroskovi.Rows)
@@ -55,6 +60,46 @@ namespace Expense___Budget_Helper
         {
             FrmUnos frmUnos = new FrmUnos();
             frmUnos.ShowDialog();
+            ShowTroskovi();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dgvTroskovi.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Potrebno je odabrati redak!");
+            }
+            else
+            {
+                DataGridViewRow row = dgvTroskovi.SelectedRows[0];
+                Trosak trosak = new Trosak();
+                trosak.Id = int.Parse(row.Cells["Id"].Value.ToString());
+                trosak.Opis = row.Cells["Opis"].Value.ToString();
+                trosak.Datum = DateTime.Parse(row.Cells["Datum"].Value.ToString());
+                trosak.Cijena = int.Parse(row.Cells["Cijena"].Value.ToString());
+                trosak.Id_vrste = int.Parse(row.Cells["Id_vrste"].Value.ToString());
+                FrmUnos frmUnos = new FrmUnos(trosak);
+                frmUnos.ShowDialog();
+                ShowTroskovi();
+
+            }
+           
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvTroskovi.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Potrebno je odabrati redak!");
+            }
+            else
+            {
+                DataGridViewRow row = dgvTroskovi.SelectedRows[0];
+                int Id = int.Parse(row.Cells["Id"].Value.ToString());
+                TrosakRepository.DeleteTrosak(Id);
+                MessageBox.Show("Uspješno obrisan redak!");
+            }
+            ShowTroskovi();
         }
     }
 }

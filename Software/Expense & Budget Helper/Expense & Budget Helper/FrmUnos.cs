@@ -15,9 +15,15 @@ namespace Expense___Budget_Helper
 {
     public partial class FrmUnos : Form
     {
-        public FrmUnos()
+        bool izmjena = false;
+        public FrmUnos(Trosak trosak = null)
         {
             InitializeComponent();
+            if(trosak != null)
+            {
+                PostaviVrijednosti(trosak);
+                izmjena=true;
+            }
         }
 
         public void btnUnesi_Click(object sender, EventArgs e)
@@ -36,10 +42,18 @@ namespace Expense___Budget_Helper
                 Id_vrste = vrsta
             };
 
-            TrosakRepository.InsertTrosak(trosak);
-
-            MessageBox.Show("Trosak uspješno dodan!");
-
+            if(!izmjena)
+            {
+                TrosakRepository.InsertTrosak(trosak);
+                MessageBox.Show("Trosak uspješno dodan!");
+            }
+            else
+            {
+                trosak.Id = int.Parse(txtId.Text);
+                TrosakRepository.UpdateTrosak(trosak);
+                MessageBox.Show("Trosak uspješno izmjenjen!");
+            }
+            Close();
         }
 
         private void cboVrsta_SelectedValueChanged(object sender, EventArgs e)
@@ -59,6 +73,15 @@ namespace Expense___Budget_Helper
             cboVrsta.DataSource = vrsteTroskova;
             cboVrsta.DisplayMember = "Naziv";
             cboVrsta.ValueMember = "Id";
+        }
+
+        public void PostaviVrijednosti(Trosak trosak)
+        {
+            txtCijena.Text = trosak.Cijena.ToString();
+            dateDatum.Value = trosak.Datum;
+            cboVrsta.SelectedValue = trosak.Id_vrste;
+            txtOpis.Text = trosak.Opis.ToString();
+            txtId.Text = trosak.Id.ToString();
         }
     }
 }

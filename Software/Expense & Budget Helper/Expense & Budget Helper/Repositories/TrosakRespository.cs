@@ -75,6 +75,20 @@ namespace Expense___Budget_Helper.Repositories
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
         }
+        public static void UpdateTrosak(Trosak trosak)
+        {
+            string sql = $"UPDATE Troskovi SET Opis = '{trosak.Opis}', Cijena = '{trosak.Cijena}', Datum = '{trosak.Datum.ToString("yyyy-MM-dd")}', Id_vrste = '{trosak.Id_vrste}' WHERE Id_troska = '{trosak.Id}'";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+        public static void DeleteTrosak(int id)
+        {
+            string sql = $"DELETE FROM Troskovi WHERE Id_troska = '{id}'";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
 
 
     }

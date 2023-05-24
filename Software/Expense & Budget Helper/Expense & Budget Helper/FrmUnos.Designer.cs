@@ -39,6 +39,7 @@
             this.cboVrsta = new System.Windows.Forms.ComboBox();
             this.dateDatum = new System.Windows.Forms.DateTimePicker();
             this.txtKategorija = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblCijena
@@ -134,11 +135,20 @@
             this.txtKategorija.Size = new System.Drawing.Size(200, 20);
             this.txtKategorija.TabIndex = 15;
             // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(78, 211);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 16;
+            this.txtId.Visible = false;
+            // 
             // FrmUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 310);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtKategorija);
             this.Controls.Add(this.dateDatum);
             this.Controls.Add(this.cboVrsta);
@@ -170,5 +180,6 @@
         private System.Windows.Forms.ComboBox cboVrsta;
         private System.Windows.Forms.DateTimePicker dateDatum;
         private System.Windows.Forms.TextBox txtKategorija;
+        private System.Windows.Forms.TextBox txtId;
     }
 }
