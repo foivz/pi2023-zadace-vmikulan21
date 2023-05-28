@@ -108,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 533);
+            this.ClientSize = new System.Drawing.Size(801, 518);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
@@ -117,7 +117,7 @@
             this.Controls.Add(this.btnUnos);
             this.Controls.Add(this.dgvTroskovi);
             this.Name = "FrmTroskovi";
-            this.Text = "FrmTroskovi";
+            this.Text = "Expense & Budget Helper";
             this.Load += new System.EventHandler(this.FrmTroskovi_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTroskovi)).EndInit();
             this.ResumeLayout(false);

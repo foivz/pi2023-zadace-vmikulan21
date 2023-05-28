@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUnos));
             this.lblCijena = new System.Windows.Forms.Label();
             this.txtCijena = new System.Windows.Forms.TextBox();
             this.lblDatum = new System.Windows.Forms.Label();
@@ -40,12 +41,14 @@
             this.dateDatum = new System.Windows.Forms.DateTimePicker();
             this.txtKategorija = new System.Windows.Forms.TextBox();
             this.txtId = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCijena
             // 
             this.lblCijena.AutoSize = true;
-            this.lblCijena.Location = new System.Drawing.Point(17, 25);
+            this.lblCijena.Location = new System.Drawing.Point(22, 122);
             this.lblCijena.Name = "lblCijena";
             this.lblCijena.Size = new System.Drawing.Size(39, 13);
             this.lblCijena.TabIndex = 2;
@@ -53,7 +56,7 @@
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(78, 22);
+            this.txtCijena.Location = new System.Drawing.Point(83, 119);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(200, 20);
             this.txtCijena.TabIndex = 3;
@@ -61,7 +64,7 @@
             // lblDatum
             // 
             this.lblDatum.AutoSize = true;
-            this.lblDatum.Location = new System.Drawing.Point(17, 66);
+            this.lblDatum.Location = new System.Drawing.Point(22, 163);
             this.lblDatum.Name = "lblDatum";
             this.lblDatum.Size = new System.Drawing.Size(41, 13);
             this.lblDatum.TabIndex = 4;
@@ -70,7 +73,7 @@
             // lblKategorija
             // 
             this.lblKategorija.AutoSize = true;
-            this.lblKategorija.Location = new System.Drawing.Point(17, 142);
+            this.lblKategorija.Location = new System.Drawing.Point(22, 239);
             this.lblKategorija.Name = "lblKategorija";
             this.lblKategorija.Size = new System.Drawing.Size(57, 13);
             this.lblKategorija.TabIndex = 6;
@@ -79,7 +82,7 @@
             // lblVrsta
             // 
             this.lblVrsta.AutoSize = true;
-            this.lblVrsta.Location = new System.Drawing.Point(17, 106);
+            this.lblVrsta.Location = new System.Drawing.Point(22, 203);
             this.lblVrsta.Name = "lblVrsta";
             this.lblVrsta.Size = new System.Drawing.Size(34, 13);
             this.lblVrsta.TabIndex = 8;
@@ -88,7 +91,7 @@
             // lblOpis
             // 
             this.lblOpis.AutoSize = true;
-            this.lblOpis.Location = new System.Drawing.Point(17, 179);
+            this.lblOpis.Location = new System.Drawing.Point(22, 276);
             this.lblOpis.Name = "lblOpis";
             this.lblOpis.Size = new System.Drawing.Size(31, 13);
             this.lblOpis.TabIndex = 10;
@@ -96,14 +99,14 @@
             // 
             // txtOpis
             // 
-            this.txtOpis.Location = new System.Drawing.Point(78, 176);
+            this.txtOpis.Location = new System.Drawing.Point(83, 273);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(200, 20);
             this.txtOpis.TabIndex = 11;
             // 
             // btnUnesi
             // 
-            this.btnUnesi.Location = new System.Drawing.Point(116, 249);
+            this.btnUnesi.Location = new System.Drawing.Point(121, 346);
             this.btnUnesi.Name = "btnUnesi";
             this.btnUnesi.Size = new System.Drawing.Size(75, 23);
             this.btnUnesi.TabIndex = 12;
@@ -114,7 +117,7 @@
             // cboVrsta
             // 
             this.cboVrsta.FormattingEnabled = true;
-            this.cboVrsta.Location = new System.Drawing.Point(78, 103);
+            this.cboVrsta.Location = new System.Drawing.Point(83, 200);
             this.cboVrsta.Name = "cboVrsta";
             this.cboVrsta.Size = new System.Drawing.Size(200, 21);
             this.cboVrsta.TabIndex = 13;
@@ -122,14 +125,14 @@
             // 
             // dateDatum
             // 
-            this.dateDatum.Location = new System.Drawing.Point(78, 60);
+            this.dateDatum.Location = new System.Drawing.Point(83, 157);
             this.dateDatum.Name = "dateDatum";
             this.dateDatum.Size = new System.Drawing.Size(200, 20);
             this.dateDatum.TabIndex = 14;
             // 
             // txtKategorija
             // 
-            this.txtKategorija.Location = new System.Drawing.Point(78, 142);
+            this.txtKategorija.Location = new System.Drawing.Point(83, 239);
             this.txtKategorija.Name = "txtKategorija";
             this.txtKategorija.ReadOnly = true;
             this.txtKategorija.Size = new System.Drawing.Size(200, 20);
@@ -137,17 +140,28 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(78, 211);
+            this.txtId.Location = new System.Drawing.Point(83, 308);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(100, 20);
             this.txtId.TabIndex = 16;
             this.txtId.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(107, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(89, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmUnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 310);
+            this.ClientSize = new System.Drawing.Size(312, 388);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.txtKategorija);
             this.Controls.Add(this.dateDatum);
@@ -161,8 +175,9 @@
             this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.lblCijena);
             this.Name = "FrmUnos";
-            this.Text = "FrmUnos";
+            this.Text = "Unos";
             this.Load += new System.EventHandler(this.FrmUnos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +196,6 @@
         private System.Windows.Forms.DateTimePicker dateDatum;
         private System.Windows.Forms.TextBox txtKategorija;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
