@@ -35,12 +35,13 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblPrijavaDizajn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(181, 320);
+            this.btnLogin.Location = new System.Drawing.Point(186, 320);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 0;
@@ -50,14 +51,14 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(130, 267);
+            this.txtPassword.Location = new System.Drawing.Point(135, 267);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(195, 20);
             this.txtPassword.TabIndex = 1;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(130, 203);
+            this.txtUsername.Location = new System.Drawing.Point(135, 203);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(195, 20);
             this.txtUsername.TabIndex = 2;
@@ -65,7 +66,7 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(183, 187);
+            this.lblUsername.Location = new System.Drawing.Point(188, 187);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(78, 13);
             this.lblUsername.TabIndex = 3;
@@ -74,7 +75,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(199, 251);
+            this.lblPassword.Location = new System.Drawing.Point(204, 251);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(47, 13);
             this.lblPassword.TabIndex = 4;
@@ -83,11 +84,22 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(153, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(181, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(141, 132);
+            this.pictureBox1.Size = new System.Drawing.Size(95, 93);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblPrijavaDizajn
+            // 
+            this.lblPrijavaDizajn.AutoSize = true;
+            this.lblPrijavaDizajn.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrijavaDizajn.Location = new System.Drawing.Point(200, 108);
+            this.lblPrijavaDizajn.Name = "lblPrijavaDizajn";
+            this.lblPrijavaDizajn.Size = new System.Drawing.Size(61, 23);
+            this.lblPrijavaDizajn.TabIndex = 6;
+            this.lblPrijavaDizajn.Text = "Prijava";
             // 
             // FrmLogin
             // 
@@ -95,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(452, 377);
+            this.Controls.Add(this.lblPrijavaDizajn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
@@ -117,5 +130,6 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblPrijavaDizajn;
     }
 }
