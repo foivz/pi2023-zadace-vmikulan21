@@ -22,12 +22,21 @@ namespace Expense___Budget_Helper
 
         private void FrmTroskovi_Load(object sender, EventArgs e)
         {
-            ShowTroskovi();
+            ShowTroskovi(false);
         }
-        private void ShowTroskovi()
+        private void ShowTroskovi(bool pretrazivanje)
         {
-            List<Trosak> troskovi = TrosakRepository.GetTroskovi();
-            dgvTroskovi.DataSource = troskovi;
+            if (!pretrazivanje)
+            {
+                List<Trosak> troskovi = TrosakRepository.GetTroskovi();
+                dgvTroskovi.DataSource = troskovi;
+            }
+            else
+            {
+                string opis = txtSearch.Text;
+                List<Trosak> rezultati = TrosakRepository.SearchTrosak(opis);
+                dgvTroskovi.DataSource = rezultati;
+            }
             if (!inicijalizirano)
             {
                 DataGridViewTextBoxColumn vrstaTroskaColumn = new DataGridViewTextBoxColumn();
@@ -60,7 +69,7 @@ namespace Expense___Budget_Helper
         {
             FrmUnos frmUnos = new FrmUnos();
             frmUnos.ShowDialog();
-            ShowTroskovi();
+            ShowTroskovi(false);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -80,7 +89,7 @@ namespace Expense___Budget_Helper
                 trosak.Id_vrste = int.Parse(row.Cells["Id_vrste"].Value.ToString());
                 FrmUnos frmUnos = new FrmUnos(trosak);
                 frmUnos.ShowDialog();
-                ShowTroskovi();
+                ShowTroskovi(false);
 
             }
            
@@ -99,7 +108,18 @@ namespace Expense___Budget_Helper
                 TrosakRepository.DeleteTrosak(Id);
                 MessageBox.Show("Uspješno obrisan redak!");
             }
-            ShowTroskovi();
+            ShowTroskovi(false);
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            ShowTroskovi(true);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            ShowTroskovi(false);
+            txtSearch.Text = string.Empty;
         }
     }
 }

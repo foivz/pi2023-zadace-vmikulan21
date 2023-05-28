@@ -89,6 +89,23 @@ namespace Expense___Budget_Helper.Repositories
             DB.ExecuteCommand(sql);
             DB.CloseConnection();
         }
+        public static List<Trosak> SearchTrosak(string opis)
+        {
+            List<Trosak> rezultati = new List<Trosak>();
+            string sql = $"SELECT * FROM Troskovi WHERE Opis LIKE '%{opis}%'";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Trosak trosak = CreateObject(reader);
+                rezultati.Add(trosak);
+            }
+            reader.Close();
+            DB.CloseConnection();
+
+            return rezultati;
+        }
 
 
     }
