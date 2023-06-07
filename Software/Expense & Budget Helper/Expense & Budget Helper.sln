@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expense & Budget Helper", "Expense & Budget Helper\Expense & Budget Helper.csproj", "{83950794-3015-4518-928C-B07CE76AF48D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Expense_and_Budget_helper Setup", "Expense_and_Budget_helper Setup\Expense_and_Budget_helper Setup.vdproj", "{937ED8CE-8ED0-49BB-A34B-2530435889EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{83950794-3015-4518-928C-B07CE76AF48D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83950794-3015-4518-928C-B07CE76AF48D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83950794-3015-4518-928C-B07CE76AF48D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{937ED8CE-8ED0-49BB-A34B-2530435889EE}.Debug|Any CPU.ActiveCfg = Debug
+		{937ED8CE-8ED0-49BB-A34B-2530435889EE}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
